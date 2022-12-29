@@ -103,10 +103,10 @@ export enum IterationTextType {
 }
 
 export interface IterativeReplacement {
-    placeholderText: PlaceholderText;
-    valueJSONPath: EvaluationAttribute;
-    dataType: Type;
-    dataFormat?: DataFormat;
+    PlaceholderText: PlaceholderText;
+    ValueJSONPath: EvaluationAttribute;
+    DataType: Type;
+    DataFormat?: DataFormat;
 }
 
 export enum DataFormat {
