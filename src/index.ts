@@ -1,7 +1,6 @@
 import * as testModel from "./models/dataModel";
 import * as method from "./models/controllers"
 
-
 let y = new method.newTest(1090, "abc", "cde")
 y.addDomain(1, "abc", "abc")
 y.addDomain(2, "cde", "cde")
