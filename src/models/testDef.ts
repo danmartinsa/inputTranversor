@@ -18,15 +18,15 @@ export interface OutputDataset {
 }
 
 export interface DatasetInterpretation {
-    calculations?: Calculation[];
-    interpretationTextDefinition?: InterpretationTextDefinition[];
+    Calculations?: Calculation[];
+    InterpretationTextDefinition?: InterpretationTextDefinition[];
 }
 
 export interface Calculation {
     calculationName: string;
     calculationType: string;
-    collectionLocation: CollectionLocation;
-    evaluationAttribute: EvaluationAttribute;
+    collectionLocation: string;
+    evaluationAttribute: string;
     itemPopulationAttribute: string;
     thresholdDefinitionLocation: string;
     thresholdLabelAttribute: string;
@@ -50,8 +50,8 @@ export enum EvaluationAttribute {
 }
 
 export interface InterpretationTextDefinition {
-    levelOfDetail: LevelOfDetail;
-    textDefinition: TextDefinition[];
+    LevelOfDetail: LevelOfDetail;
+    TextDefinition?: TextDefinition[];
 }
 
 export enum LevelOfDetail {
@@ -61,27 +61,28 @@ export enum LevelOfDetail {
 }
 
 export interface TextDefinition {
-    type: TypeEnum;
-    conditions?: any[];
-    conditionsOnEachIteration?: ConditionsOnEachIteration[];
-    collectionLocation?: CollectionLocation;
-    iterationTextType?: IterationTextType;
-    iterationDelimiter?: string;
-    iterationFinalDelimiter?: string;
-    newLineAfterEachItem?: string;
-    textTemplate?: string;
-    iterativeReplacements?: IterativeReplacement[];
+    Type: TypeEnum;
+    Conditions?: any[];
+    ConditionsOnEachIteration?: ConditionsOnEachIteration[];
+    CollectionLocation?: CollectionLocation;
+    IterationTextType?: IterationTextType;
+    IterationDelimiter?: string;
+    IterationFinalDelimiter?: string;
+    NewLineAfterEachItem?: string;
+    TextTemplate?: string;
+    IterativeReplacements?: IterativeReplacement[];
 }
 
 export interface ConditionsOnEachIteration {
-    conditionType: ConditionType;
-    evaluationAttribute: ConditionsOnEachIterationEvaluationAttribute;
-    equalValue?: LevelOfDetail;
-    conditionLinkage: ConditionLinkage;
+    ConditionType: ConditionType;
+    EvaluationAttribute: ConditionsOnEachIterationEvaluationAttribute;
+    EqualValue?: LevelOfDetail;
+    ConditionLinkage: ConditionLinkage;
 }
 
 export enum ConditionLinkage {
     And = "AND",
+    Or = "OR"
 }
 
 export enum ConditionType {
