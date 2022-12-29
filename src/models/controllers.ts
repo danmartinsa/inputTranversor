@@ -37,17 +37,25 @@ export class newTest {
         }
     }
 
-    addOutputDatasets(outputId: number,
-        outputName: string,
-        conformedId: number,
-        conformedName: string) {
+    // addOutputDatasets(outputId: number,
+    //     outputName: string,
+    //     conformedId: number,
+    //     conformedName: string) {
 
-        let outputDataset: testModel.OutputDataset = {
-            outputDatasetId: outputId,
-            outputDatasetName: outputName,
-            conformedDatasetId: conformedId,
-            conformedDatasetName: conformedName
-        };
+    //     let outputDataset: testModel.OutputDataset = {
+    //         outputDatasetId: outputId,
+    //         outputDatasetName: outputName,
+    //         conformedDatasetId: conformedId,
+    //         conformedDatasetName: conformedName
+    //     };
+    //  V   if (this.newTest.outputDatasets == undefined) {
+    //         this.newTest.outputDatasets = new Array(outputDataset);
+    //     } else {
+    //         this.newTest.outputDatasets.push(outputDataset);
+    //     };
+    // }
+
+    addOutputDataset(outputDataset: testModel.OutputDataset) {
         if (this.newTest.outputDatasets == undefined) {
             this.newTest.outputDatasets = new Array(outputDataset);
         } else {
@@ -55,29 +63,78 @@ export class newTest {
         };
     }
 
-    addDatsetSchema(n: number, schema: string, type: string, required: string[]) {
+    // addDatsetSchema(n: number, schema: string, type: string, required: string[]) {
 
-        let datasetSchema: testModel.DatasetSchema = {
+    //     let datasetSchema: testModel.DatasetSchema = {
+    //         $schema: schema,
+    //         type: type
+    //     };
+    //     if (required.length > 0) {
+    //         datasetSchema.required = required
+    //     };
+    //     if (this.newTest.outputDatasets != undefined) {
+    //         this.newTest.outputDatasets[n].datasetSchema = datasetSchema
+    //     }
+    // }
+
+    // addProperty(n: number, property: testModel.Properties) {
+
+    //     if ((this.newTest.outputDatasets != undefined) && (this.newTest.outputDatasets[n].datasetSchema != undefined)) {
+    //         this.newTest.outputDatasets[n].datasetSchema!.properties = property
+    //     }
+    // }
+}
+
+export class NewOutputDataset {
+    NewOutputDataset: testModel.OutputDataset;
+
+    constructor(outputId: number,
+        outputName: string,
+        conformedId: number,
+        conformedName: string) {
+        this.NewOutputDataset = {
+            outputDatasetId: outputId,
+            outputDatasetName: outputName,
+            conformedDatasetId: conformedId,
+            conformedDatasetName: conformedName
+        }
+    }
+
+    addDatasetSchema(datasetSchema: testModel.DatasetSchema) {
+        this.NewOutputDataset.datasetSchema = datasetSchema
+    }
+
+    addDatasetInterpretation(datasetInterpretation: testModel.DatasetInterpretation) {
+        this.NewOutputDataset.datasetInterpretation = datasetInterpretation
+    }
+
+    addVisualComponent(visualComponent: testModel.VisualComponent) {
+        if (this.NewOutputDataset.visualComponents == undefined) {
+            this.NewOutputDataset.visualComponents = new Array(visualComponent);
+        } else {
+            this.NewOutputDataset.visualComponents.push(visualComponent);
+        };
+    }
+
+}
+
+export class NewDatasetSchema {
+    NewDatasetSchema: testModel.DatasetSchema;
+
+    constructor(schema: string, type: string) {
+        this.NewDatasetSchema = {
             $schema: schema,
             type: type
-        };
-        if (required.length > 0) {
-            datasetSchema.required = required
-        };
-        if (this.newTest.outputDatasets != undefined) {
-            this.newTest.outputDatasets[n].datasetSchema = datasetSchema
         }
     }
 
-    addProperty(n: number, property: testModel.Properties) {
-
-        if ((this.newTest.outputDatasets != undefined) && (this.newTest.outputDatasets[n].datasetSchema != undefined)) {
-            this.newTest.outputDatasets[n].datasetSchema!.properties = property
-        }
+    addProperty(property: testModel.Properties) {
+        this.NewDatasetSchema.properties = property
     }
 
-
-
+    addRequired(requiredList: string[]) {
+        this.NewDatasetSchema.required = requiredList
+    }
 }
 
 export class NewProperty {
